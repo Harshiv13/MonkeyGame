@@ -37,7 +37,7 @@ function setup() {
 function draw() {
   background("white");
   
-  text("Survival Time: " + score, 300, 100);
+  text("Survival Time test: " + score, 300, 100);
   
   if(gameState === PLAY) {
   
