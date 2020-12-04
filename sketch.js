@@ -59,18 +59,23 @@ function draw() {
   food();
   obstacles();
     
-  if(keyDown("r")){
+  if(obstacleGroup.isTouching(monkey)){
     gameState = END;
   }
     
   }
   
   else if(gameState === END){
-    foodGroup.setVelocityXEach = 0;
-    obstacleGroup.setVelocityXEach = 0;
-    foodGroup.setLifetimeEach = -1;
-    obstacleGroup.setLifetimeEach = -1;
-    monkey.addImage("sprite.png", monkey_running);
+    foodGroup.setVelocityXEach(0);
+    obstacleGroup.setVelocityXEach(0);
+    foodGroup.setLifetimeEach(-1);
+    obstacleGroup.setLifetimeEach(-1);
+    obstacleGroup.destroyEach();
+    foodGroup.destroyEach();
+    monkey.visible = false
+    textSize(20);
+    fill("red");
+    text("GAME OVER", 100, 100);
     monkey.velocityY = 0;
     ground.velocityX = 0;
   }
